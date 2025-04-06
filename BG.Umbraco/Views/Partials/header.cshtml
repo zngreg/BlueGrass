@@ -1,0 +1,23 @@
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+    var siteSettings = ViewData["SiteSettings"] as Site;
+}
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            @siteSettings?.SiteName
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                @await Html.CachedPartialAsync("blocklist/default", siteSettings?.Navigation,
+                cacheTimeout:
+                TimeSpan.FromMinutes(60))
+            </ul>
+        </div>
+    </div>
+</nav>

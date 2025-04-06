@@ -1,0 +1,38 @@
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>
+@{
+    var navItem = Model.Content as ContentModels.Navigation;
+    if (navItem == null) return;
+
+    var hasSubLinks = navItem.ChildLinks != null && navItem.ChildLinks.Any();
+}
+
+@if (hasSubLinks)
+{
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            @navItem.Title
+        </a>
+
+        <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+            @foreach (var subLink in navItem?.ChildLinks)
+            {
+                if (subLink == null) continue;
+                <li><a class="dropdown-item" href="@subLink.Url" target="@subLink.Target">@subLink.Name</a></li>
+            }
+        </ul>
+    </li>
+}
+else
+{
+    <li class="nav-item">
+        @if (navItem?.NavLink?.Url != null)
+        {
+            <a class="nav-link" href="@navItem.NavLink.Url" target="@navItem.NavLink.Target">@navItem.NavLink.Name</a>
+        }
+        else if (!string.IsNullOrEmpty(navItem.Title))
+        {
+            <span class="nav-link disabled">@navItem.Title</span>
+        }
+    </li>
+}

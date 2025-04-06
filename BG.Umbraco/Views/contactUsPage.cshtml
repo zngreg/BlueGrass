@@ -1,0 +1,14 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.ContactUsPage>
+@{
+	Layout = "Layout.cshtml";
+}
+
+<!-- Hero Banner -->
+@await Html.GetBlockGridHtmlAsync(Model.PageHeader)
+
+<!-- Content Sections -->
+<main class="container my-5">
+	<section class="mb-5">
+		@await Html.GetBlockGridHtmlAsync(Model.MainContent)
+	</section>
+</main>

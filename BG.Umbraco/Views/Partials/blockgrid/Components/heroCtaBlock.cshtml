@@ -1,0 +1,18 @@
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem<ContentModels.HeroCtaBlock>>
+@{
+    if(Model == null) return;
+}
+
+<!-- Hero Banner -->
+<header class="hero" style="background: url('@Model.Content?.Image?.GetCropUrl(1920, 514)') no-repeat center center; background-size: cover;">
+  <div class="container">
+    <h1 class="display-4">@Model?.Content?.Title</h1>
+    <div class="mb-3">
+        @Model?.Content?.Description
+    </div>
+    @if (Model?.Content != null && Model?.Content?.PrimaryCallToAction != null)
+    {
+        <a href="@Model.Content.PrimaryCallToAction.Url" target="@Model.Content.PrimaryCallToAction.Target" class="btn btn-primary">@Model.Content.PrimaryCallToAction.Name</a>
+    }
+  </div>
+</header>
