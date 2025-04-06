@@ -64,12 +64,29 @@ dotnet run
 - Navigate to: `https://localhost:44330` → Shows the custom MVC view.
 - Navigate to: `https://localhost:44330/umbraco` → Log in to Umbraco backoffice.
 
-### 3. Default Credentials (Dev)
+### 3. Create Umbraco Account
 
-> Change these in real deployments!
+On installation first screen you will be required to fill in the following information:
 
-- **Email**: `zngreg@yahoo.com`
+- **Name**: `Joe Doe`
+- **Email**: `joedoe@example.com`
 - **Password**: `1234567890`
+
+![image info](/Media/Screenshot%202025-04-06%20at%203.31.47 PM.png)
+
+On installation second screen, you can set the amount of telementry you like to share on the site:
+
+![image info](/Media/Screenshot%202025-04-06%20at%203.32.06 PM.png)
+
+On installation third screen, you can select the database you would like to connect to, for the purpose of this example. I recommend SQL Lite:
+
+![image info](/Media/Screenshot%202025-04-06%20at%203.32.23 PM.png)
+
+On successful installation, you'll be required to login with your crdentails created on step one to access Umbraco back office:
+
+![image info](/Media/Screenshot%202025-04-06%20at%203.33.05 PM.png)
+
+Note: Upon installation uSync will automatically run and import the configurations. You can browse around to view configs or navigate to site `https://localhost:44330` to access the application.
 
 ---
 
