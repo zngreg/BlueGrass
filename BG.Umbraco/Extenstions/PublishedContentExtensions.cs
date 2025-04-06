@@ -7,7 +7,7 @@ namespace BG.Umbraco.Extenstions
     {
         public static Site? GetSiteSettings(this UmbracoHelper umbracoHelper)
         {
-            var siteSettings = umbracoHelper?.ContentAtRoot().SingleOrDefault(x => x.ContentType.Alias == Site.ModelTypeAlias) as Site;
+            var siteSettings = umbracoHelper?.ContentAtRoot()?.SingleOrDefault(x => x.ContentType.Alias == Site.ModelTypeAlias) as Site;
             if (siteSettings == null) return null;
             return siteSettings;
         }
